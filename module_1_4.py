@@ -1,0 +1,8 @@
+my_string = input("Введите текст: ")
+countString = len(my_string)
+print(f"Кол-во символов в слове {my_string}: {countString}")
+print(my_string.upper())
+print(my_string.lower())
+print(my_string.replace(" ", ""))
+print(my_string[0])
+print(my_string[-1])
