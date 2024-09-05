@@ -5,8 +5,8 @@ my_dict['Mira'] = 1998
 print(my_dict)
 my_dict.update({'Ivan': 1985,
                 'Sofia': 2003})
-del(my_dict['Sofia'])
-print(my_dict)
+sofia = my_dict.pop('Sofia')
+print(sofia)
 
 
 my_set = {1, 2, 3, True, 'Name', 3.14, 3, True, False}
