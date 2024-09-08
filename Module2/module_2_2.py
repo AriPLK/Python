@@ -1,9 +1,6 @@
-first = input("First: ")
-first = int(first)
-second = input("Second: ")
-second = int(second)
-third = input("Third: ")
-third = int(third)
+first = int(input("First: "))
+second = int(input("Second: "))
+third = int(input("Third: "))
 if first == second == third:
     print(3)
 elif first == second or first == third or second == third:
