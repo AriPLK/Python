@@ -13,6 +13,7 @@ infoButton = InlineKeyboardButton(text = 'Формулы расчёта', callba
 keyboard.add(caloriesButton)
 keyboard.add(infoButton)
 
+
 class UserState(StatesGroup):
     age = State()
     growth = State()
@@ -29,11 +30,9 @@ async def get_formulas(call):
     await call.message.answer('10 х вес (кг) + 6,25 x рост (см) – 5 х возраст (г) + 5')
 
 
-
 @dispatcherBot.message_handler(commands=['start'])
 async def start(message):
     await message.answer('Привет! Я бот помогающий твоему здоровью!')
-
 
 
 @dispatcherBot.callback_query_handler(text = 'calories')
@@ -48,11 +47,13 @@ async def set_growth(message, state):
     await message.answer('Введите свой рост:')
     await UserState.growth.set()
 
+
 @dispatcherBot.message_handler(state = UserState.growth)
 async def set_weight(message, state):
     await state.update_data(growth = message.text)
     await message.answer('Введите свой вес:')
     await UserState.weight.set()
+
 
 @dispatcherBot.message_handler(state = UserState.weight)
 async def send_calories(message, state):
