@@ -21,7 +21,5 @@ cursor.execute("SELECT SUM(balance) FROM Users")
 all_balance = cursor.fetchone()[0]
 print(all_balance/total_users)
 
-#connection.execute("CREATE INDEX IF NOT EXISTS idx_email ON Users (email)")
-
 connection.commit()
 connection.close()
