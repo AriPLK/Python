@@ -11,6 +11,9 @@ keyboard2 = ReplyKeyboardMarkup(resize_keyboard=True)
 keyboard = InlineKeyboardMarkup(resize_keyboard=True)
 
 buyButton = KeyboardButton(text = 'Купить')
+calcButton = KeyboardButton(text = 'Рассчитать')
+infoButton = KeyboardButton(text = 'Информация')
+keyboard2.add(calcButton, infoButton)
 keyboard2.add(buyButton)
 caloriesButton = InlineKeyboardButton(text = 'Рассчитать норму калорий', callback_data='calories')
 infoButton = InlineKeyboardButton(text = 'Формулы расчёта', callback_data='formulas')
@@ -101,7 +104,7 @@ async def send_calories(message, state):
 
 @dispatcherBot.message_handler()
 async def all_messages(message):
-    await message.answer('Введите команду /start, чтобы начать общение.')
+    await message.answer('Введите команду /start, чтобы начать общение.', reply_markup=keyboard2)
 
 
 if __name__ == '__main__':
